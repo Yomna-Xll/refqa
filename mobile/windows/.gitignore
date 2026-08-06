@@ -15,13 +15,3 @@ x86/
 *.[Cc]ache
 # but keep track of directories ending in .cache
 !*.[Cc]ache/
-mobile/.dart_tool/
-mobile/build/
-mobile/.idea/
-*.iml
-.dart_tool/
-.gradle/
-build/
-**/build/
-**/.dart_tool/
-**/.gradle/
