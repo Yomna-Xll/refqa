@@ -8,5 +8,7 @@ class AppColors {
   static const Color blackblueColor = Color(0xFF0D43C6);
   static const Color containerColor = Color(0xFFE7F1FF);
   static const Color text2Color = Color(0xFF1741B1);
+  static const Color disabledColor = Color(0xFF93C5FD);
+  static const Color dividerColor = Color(0xFFE5E7EB);
 
 }
