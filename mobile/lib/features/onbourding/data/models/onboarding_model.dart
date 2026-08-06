@@ -14,21 +14,21 @@ class OnboardingModel {
 
 final List<OnboardingModel> onboardingPages = const [
   OnboardingModel(
-    imagePath: 'mobile/assets/images/onboarding1.png',
+    imagePath: 'assets/images/onboarding1.png',
     tag: 'CAMPUS MOBILITY',
     title: 'Your campus ride, finally organised',
     description:
         'Refqa connects every university route, stop and departure into one calm daily commute you can rely on.',
   ),
   OnboardingModel(
-    imagePath: 'mobile/assets/images/onboarding2.png',
+    imagePath: 'assets/images/onboarding2.png',
     tag: 'SMART QR BOARDING',
     title: 'Board Faster with QR',
     description:
         'Scan your QR code and board your assigned bus in seconds. No paperwork, no waiting.',
   ),
   OnboardingModel(
-    imagePath: 'mobile/assets/images/onboarding3.png',
+    imagePath: 'assets/images/onboarding3.png',
     tag: 'CAMPUS STOPS',
     title: 'Wait Smarter at Your Stop',
     description:

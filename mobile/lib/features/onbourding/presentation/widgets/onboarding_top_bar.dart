@@ -19,8 +19,8 @@ class OnboardingTopBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset('mobile/assets/images/Container (1).png', height: 28),
-           SizedBox(width: 6),
+          Image.asset('assets/images/app_bar.png', height: 28),
+          SizedBox(width: 6),
 
           // بيظهر Skip لو مش في آخر صفحة بس
           if (!isLastPage)
