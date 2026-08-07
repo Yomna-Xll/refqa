@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:refqa/core/constants/app_colors.dart';
+import 'package:refqa/features/auth/presentation/screens/login_screen.dart';
 import '../widgets/auth_buttons.dart';
 import '../widgets/auth_subtitle.dart';
 import '../widgets/auth_title.dart';
@@ -34,7 +35,12 @@ class PasswordUpdatedScreen extends StatelessWidget {
               CustomMainButton(
                 text: 'Continue to login',
                 onPressed: () {
-                  // Navigate to LoginScreen
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
+                  );
                 },
               ),
             ],
