@@ -11,7 +11,7 @@ class AuthSubtitle extends StatelessWidget {
     return Text(
       subtitle,
       style: TextStyle(
-        fontSize: 13,
+        fontSize: 14,
         color: AppColors.hintTextColor,
         height: 1.4,
       ),

@@ -11,17 +11,19 @@ class CustomBackButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap ?? () => Navigator.maybePop(context),
       child: Container(
-        width: 40,
-        height: 40,
+        width: 50,
+        height: 50,
         decoration: BoxDecoration(
-          color: AppColors.backgroundColor,
+          color: Colors.white,
           shape: BoxShape.circle,
-          border: Border.all(color: AppColors.backgroundColor),
+          border: Border.all(color: const Color(0xFFE2E8F0), width: 1),
         ),
-        child: Icon(
-          Icons.arrow_back_ios_new,
-          size: 16,
-          color: AppColors.textColor,
+        child: const Center(
+          child: Icon(
+            Icons.arrow_back_ios_new,
+            size: 16,
+            color: AppColors.textColor,
+          ),
         ),
       ),
     );

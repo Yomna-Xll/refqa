@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:refqa/core/constants/app_colors.dart';
+import 'package:refqa/features/auth/presentation/screens/login_screen.dart';
+import 'package:refqa/features/auth/presentation/screens/sign_up.dart';
 import '../widgets/auth_buttons.dart';
 import '../widgets/auth_divider.dart';
 import '../widgets/auth_subtitle.dart';
@@ -41,7 +43,17 @@ class CreateAccountScreen extends StatelessWidget {
               SizedBox(height: 24),
               AuthDivider(text: 'or'),
               SizedBox(height: 24),
-              CustomMainButton(text: 'Continue with Email', onPressed: () {}),
+              CustomMainButton(
+                text: 'Continue with Email',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpScreen(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(height: 28),
               Container(
                 padding: const EdgeInsets.all(16),
@@ -72,28 +84,35 @@ class CreateAccountScreen extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Center(
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text.rich(
-                    TextSpan(
-                      text: 'Already registered? ',
-                      style: TextStyle(
-                        color: AppColors.hintTextColor,
-                        fontSize: 13,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: 'Log in',
-                          style: TextStyle(
-                            color: AppColors.blackblueColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Already registered? ',
+                    style: TextStyle(
+                      color: AppColors.hintTextColor,
+                      fontSize: 13,
                     ),
                   ),
-                ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Log in',
+                      style: TextStyle(
+                        color: AppColors.blackblueColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
