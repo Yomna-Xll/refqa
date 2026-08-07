@@ -62,6 +62,12 @@
       "languageVersion": "3.8"
     },
     {
+      "name": "flutter_pw_validator",
+      "rootUri": "file:///C:/Users/rabys/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_pw_validator-1.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///C:/Users/rabys/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_svg-2.3.0",
       "packageUri": "lib/",

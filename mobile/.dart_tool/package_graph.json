@@ -9,6 +9,7 @@
       "dependencies": [
         "cupertino_icons",
         "flutter",
+        "flutter_pw_validator",
         "flutter_svg"
       ],
       "devDependencies": [
@@ -45,6 +46,13 @@
       "name": "cupertino_icons",
       "version": "1.0.9",
       "dependencies": []
+    },
+    {
+      "name": "flutter_pw_validator",
+      "version": "1.6.0",
+      "dependencies": [
+        "flutter"
+      ]
     },
     {
       "name": "flutter_svg",
