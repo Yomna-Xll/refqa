@@ -28,9 +28,9 @@ class PasswordFieldState extends State<PasswordField> {
         Text(
           widget.label,
           style: const TextStyle(
-            fontSize: 12,
+            fontSize: 13,
             fontWeight: FontWeight.w600,
-            color: AppColors.textColor,
+            color: AppColors.hintTextColor,
           ),
         ),
         const SizedBox(height: 6),
@@ -39,21 +39,32 @@ class PasswordFieldState extends State<PasswordField> {
           obscureText: isObscure,
           decoration: InputDecoration(
             hintText: widget.hintText,
-            hintStyle: const TextStyle(color: AppColors.hintTextColor, fontSize: 13),
+            hintStyle: const TextStyle(
+              color: AppColors.hintTextColor,
+              fontSize: 17,
+            ),
             filled: true,
-            fillColor: AppColors.backgroundColor,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 14,
+            ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.backgroundColor),
+              borderRadius: BorderRadius.circular(24),
+              borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.blackblueColor, width: 1.5),
+              borderRadius: BorderRadius.circular(24),
+              borderSide: const BorderSide(
+                color: AppColors.blackblueColor,
+                width: 1.5,
+              ),
             ),
             suffixIcon: IconButton(
               icon: Icon(
-                isObscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                isObscure
+                    ? Icons.visibility_off_outlined
+                    : Icons.visibility_outlined,
                 size: 20,
                 color: AppColors.hintTextColor,
               ),

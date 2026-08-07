@@ -24,30 +24,39 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(
           label,
-          style:  TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
-            color: AppColors.textColor,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight(600),
+            color: AppColors.hintTextColor,
           ),
         ),
-         SizedBox(height: 6),
+        const SizedBox(height: 6),
         TextFormField(
           controller: controller,
           keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle:  TextStyle(color: AppColors.hintTextColor, fontSize: 13),
+            hintStyle: const TextStyle(
+              color: AppColors.hintTextColor,
+              fontSize: 15,
+            ),
             filled: true,
-            fillColor: AppColors.backgroundColor,
+            fillColor: Colors.white,
             prefixIcon: prefixIcon,
-            contentPadding:  EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 14,
+            ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide:  BorderSide(color: AppColors.backgroundColor),
+              borderRadius: BorderRadius.circular(24),
+              borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide:  BorderSide(color: AppColors.blackblueColor, width: 1.5),
+              borderRadius: BorderRadius.circular(24),
+              borderSide: const BorderSide(
+                color: AppColors.blackblueColor,
+                width: 1.5,
+              ),
             ),
           ),
         ),

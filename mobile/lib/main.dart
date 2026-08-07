@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:refqa/features/auth/presentation/screens/create_account.dart';
+import 'package:refqa/features/auth/presentation/screens/sign_up.dart';
 import 'package:refqa/features/onbourding/presentation/screens/onboarding_screen.dart';
 import 'package:refqa/features/onbourding/presentation/screens/splash_screen.dart';
 
