@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:refqa/core/constants/app_colors.dart';
+import 'package:refqa/features/auth/presentation/screens/forget_password.dart';
 import 'package:refqa/features/auth/presentation/screens/sign_up.dart';
 import 'package:refqa/features/auth/presentation/widgets/auth_divider.dart';
 import 'package:refqa/features/auth/presentation/widgets/custom_back_button.dart';
@@ -81,7 +82,12 @@ class LoginScreenState extends State<LoginScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // Navigate to ForgotPassword / CreatePassword
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgotPasswordScreen(),
+                        ),
+                      );
                     },
                     child: Text(
                       'Forgot password?',
