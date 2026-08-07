@@ -1,9 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:refqa/core/constants/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:refqa/core/constants/app_colors.dart';
+import 'package:refqa/features/onbourding/presentation/screens/onboarding_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => SplashScreenState();
+}
+
+class SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller)
+      ..addListener(() {
+        setState(() {});
+      });
+
+    controller.forward().then((_) {
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const OnboardingScreen()),
+        );
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +60,6 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
 
-          //// Add the top circular
           Positioned(
             top: -100,
             left: -100,
@@ -37,7 +76,6 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
 
-          //// Add the bottom circular
           Positioned(
             bottom: -80,
             right: -80,
@@ -50,28 +88,21 @@ class SplashScreen extends StatelessWidget {
                   color: AppColors.backgroundColor.withOpacity(0.12),
                   width: 40,
                 ),
-                
               ),
             ),
           ),
 
-          /// Add the logo and text in the center
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Add the logo
-                SvgPicture.asset(
-                  'assets/icons/logo.svg',
-                  height: 100,
-                  colorFilter: const ColorFilter.mode(
-                    AppColors.backgroundColor,
-                    BlendMode.srcIn,
-                  ),
+                Image.asset(
+                  'assets/images/app.png',
+                  width: 200,
+                  height: 200,
                 ),
 
                 SizedBox(height: 24),
-                // Add the text below the logo
                 Text(
                   'RIDE SMART  ·  ARRIVE ON TIME',
                   style: TextStyle(
@@ -84,25 +115,25 @@ class SplashScreen extends StatelessWidget {
               ],
             ),
           ),
-          // Add the progress indicator and text at the bottom
+
           Positioned(
             bottom: 60,
             left: 40,
             right: 40,
             child: Column(
               children: [
-                // Add the progress indicator
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: LinearProgressIndicator(
-                    value: 0.4,
-                    backgroundColor: AppColors.backgroundColor.withOpacity(0.25),
+                    value: animation.value,
+                    backgroundColor: AppColors.backgroundColor.withOpacity(
+                      0.25,
+                    ),
                     color: AppColors.backgroundColor,
                     minHeight: 4,
                   ),
                 ),
-                SizedBox(height: 16),
-                // Add the text below the progress indicator
+                const SizedBox(height: 16),
                 Text(
                   'Preparing your route...',
                   style: TextStyle(

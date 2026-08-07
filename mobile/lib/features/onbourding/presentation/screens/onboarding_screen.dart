@@ -49,7 +49,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               isLastPage: isLastPage,
               onSkip: onSkip,
             ),
-
             Expanded(
               child: PageView.builder(
                 controller: pageController,

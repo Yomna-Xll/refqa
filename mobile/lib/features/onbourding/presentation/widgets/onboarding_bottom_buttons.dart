@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:refqa/core/constants/app_colors.dart';
+import 'package:refqa/features/auth/presentation/screens/create_account.dart';
+import 'package:refqa/features/auth/presentation/screens/login_screen.dart';
 
-// البار اللي تحت فيه زراير Skip tour و Next أو Get Started
 class OnboardingBottomButtons extends StatelessWidget {
-  final bool isLastPage; 
-  final VoidCallback onSkip; 
-  final VoidCallback onNext; 
+  final bool isLastPage;
+  final VoidCallback onSkip;
+  final VoidCallback onNext;
 
   const OnboardingBottomButtons({
     super.key,
@@ -16,13 +17,17 @@ class OnboardingBottomButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // لو مش في آخر صفحة: بنعرض زراير Skip tour و Next جنبية بعض
     if (!isLastPage) {
       return Row(
         children: [
           Expanded(
             child: OutlinedButton(
-              onPressed: onSkip,
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                );
+              },
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 side: BorderSide.none,
@@ -63,7 +68,11 @@ class OnboardingBottomButtons extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 6),
-                  Icon(Icons.arrow_forward, size: 16, color: AppColors.backgroundColor),
+                  Icon(
+                    Icons.arrow_forward,
+                    size: 16,
+                    color: AppColors.backgroundColor,
+                  ),
                 ],
               ),
             ),
@@ -71,17 +80,22 @@ class OnboardingBottomButtons extends StatelessWidget {
         ],
       );
     }
-
     return Column(
       children: [
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CreateAccountScreen(),
+                ),
+              );
             },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 16),
-              backgroundColor: const Color(0xFF2563EB),
+              backgroundColor: AppColors.mainColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
               ),
@@ -106,11 +120,15 @@ class OnboardingBottomButtons extends StatelessWidget {
         const SizedBox(height: 12),
         GestureDetector(
           onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()),
+            );
           },
           child: const Text(
             'I already have an account',
             style: TextStyle(
-              color: Color(0xFF2563EB),
+              color: AppColors.mainColor,
               fontSize: 13,
               fontWeight: FontWeight.w600,
             ),
