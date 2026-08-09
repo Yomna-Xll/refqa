@@ -8,10 +8,14 @@ import { EmailModule } from '../email/email.module';
 import { OtpService } from '../email/otp.service';
 import { UserRepository } from '../../DB/repository/user.repository';
 import { OtpRepository } from '../../DB/repository/otp.repository';
+import { TokenService } from '../../common/utils/Token';
+import { JwtService } from '@nestjs/jwt';
+import { RefreshTokenRepository } from '../../DB/repository/refreshToken.repository';
+import { RefreshToken } from '../../DB/models/RefreshToken.model';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Otp]), EmailModule],
-  providers: [AuthService, OtpService,UserRepository,OtpRepository],
+  imports: [TypeOrmModule.forFeature([User, Otp,RefreshToken]), EmailModule],
+  providers: [AuthService, OtpService,UserRepository,OtpRepository,TokenService,JwtService,RefreshTokenRepository],
   controllers: [AuthController],
 })
 export class AuthModule {}
