@@ -12,10 +12,12 @@ import { TokenService } from '../../common/utils/Token';
 import { JwtService } from '@nestjs/jwt';
 import { RefreshTokenRepository } from '../../DB/repository/refreshToken.repository';
 import { RefreshToken } from '../../DB/models/RefreshToken.model';
+import { OauthAccountRepository } from '../../DB/repository/oauth-account.repository';
+import { OauthAccount } from '../../DB/models/oauth-account.model';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Otp,RefreshToken]), EmailModule],
-  providers: [AuthService, OtpService,UserRepository,OtpRepository,TokenService,JwtService,RefreshTokenRepository],
+  imports: [TypeOrmModule.forFeature([User, Otp,RefreshToken,OauthAccount]), EmailModule],
+  providers: [AuthService, OtpService,UserRepository,OtpRepository,TokenService,JwtService,RefreshTokenRepository,OauthAccountRepository],
   controllers: [AuthController],
 })
 export class AuthModule {}

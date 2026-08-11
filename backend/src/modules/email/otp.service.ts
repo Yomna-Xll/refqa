@@ -10,6 +10,7 @@ import { OtpEnum } from '../../common/enums/otp.enums';
 import { User } from '../../DB/models/user.model';
 import { OtpRepository } from '../../DB/repository/otp.repository';
 import { compareHash, genreteHash } from '../../common/utils/Hash';
+import { Otp } from '../../DB/models/otp.model';
 
 @Injectable()
 export class OtpService {
@@ -68,5 +69,29 @@ export class OtpService {
   await this.otpRepo.save(otp);   
 
   return true;
+}
+async verifyAndReturn(userId: string, code: string, type: OtpEnum): Promise<Otp> {
+   const otp = await this.otpRepo.findOneWithOptions({
+    where: { user: { id: userId }, type, isUsed: false },
+    order: { createdAt: 'DESC' },
+    relations: {user:true},
+  });
+
+  if (!otp) {
+    throw new BadRequestException('No active OTP found, please request a new one');
+  }
+
+  if (otp.expiredAt < new Date()) {
+    throw new BadRequestException('OTP has expired, please request a new one');
+  }
+
+  const isMatch = await compareHash(code, otp.code);
+  if (!isMatch) {
+    throw new BadRequestException('Invalid OTP code');
+  }
+
+  otp.isUsed = true;
+  await this.otpRepo.save(otp);   
+  return this.otpRepo.save(otp);   // بدل return true;
 }
 }

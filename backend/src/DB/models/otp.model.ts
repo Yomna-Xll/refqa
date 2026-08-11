@@ -41,4 +41,7 @@ export class Otp {
   @ManyToOne(() => User, (user) => user.otps, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' })
   user: User;
+  
+  @Column({ name: 'reset_token_used', type: 'boolean', default: false })
+resetTokenUsed: boolean;
 }

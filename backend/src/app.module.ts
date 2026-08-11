@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { databaseConfig } from './config/db.config';
-import { AuthModule } from './modules/auth/auth.module';
+import { AuthModule } from './modules/auth/auth.module'; 
 import { BullModule } from '@nestjs/bullmq';
 
 @Module({
@@ -30,3 +30,4 @@ import { BullModule } from '@nestjs/bullmq';
   providers: [AppService],
 })
 export class AppModule {}  
+
